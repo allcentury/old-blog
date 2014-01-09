@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-01-08T21:57:03-08:00</updated>
+  <updated>2014-01-08T22:23:41-08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Anthony Ross]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -18,7 +18,7 @@
     <link href="http://yoursite.com/blog/2014/01/08/my-first-post/"/>
     <updated>2014-01-08T21:40:28-08:00</updated>
     <id>http://yoursite.com/blog/2014/01/08/my-first-post</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>Here is my first post about posting and songbirds.</p>
 ]]></content>
   </entry>
   
