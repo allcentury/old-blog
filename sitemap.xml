@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://allcentury.github.io/blog/2014/01/08/my-first-post/</loc>
+        <loc>http://yoursite.com/blog/2014/01/08/my-first-post/</loc>
         <lastmod>2014-01-08T21:40:28-08:00</lastmod>
     </url>
     <url>
-        <loc>http://allcentury.github.io/blog/archives/</loc>
+        <loc>http://yoursite.com/blog/archives/</loc>
         <lastmod>2014-01-08T21:40:28-08:00</lastmod>
     </url>
     <url>
-        <loc>http://allcentury.github.io/</loc>
+        <loc>http://yoursite.com/</loc>
         <lastmod>2014-01-08T21:40:28-08:00</lastmod>
     </url>
     <url>
-        <loc>http://allcentury.github.io/robots.txt</loc>
+        <loc>http://yoursite.com/robots.txt</loc>
         <lastmod>2014-01-08T21:40:13-08:00</lastmod>
     </url>
 </urlset>
