@@ -16,4 +16,4 @@ However, at the age of 18 - I convinced myself that coding wasn't a "creative en
 
 After a series of mediocre jobs, none that really intrigued me or asked me to solve any real-world issues, I came back to programming with a new sense of purpose.  I didn't know what that purpose was, I just knew that I was underutilized in my job and therefore wanted to try my hand at developing again.  I'm more experienced in life and in business, but more importantly I have a firm understanding of certain areas in the world that have gaps - some that I think I can help overcome.  
 
-In the end, my goal here is a bit selfish, that is to make a better me - one that involves a live and a career that makes me a forever student.  I’m the last person to claim to know everything and I think this future career in development fits that mindset, perfectly. 
+In the end, my goal here is a bit selfish, that is to make a better me - one that involves a life and a career that makes me a forever student.  I’m the last person to claim to know everything and I think this future career in development fits that mindset, perfectly. 
