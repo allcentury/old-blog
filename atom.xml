@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-01-13T21:12:33-08:00</updated>
+  <updated>2014-02-18T08:38:12-05:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -14,10 +14,25 @@
 
   
   <entry>
+    <title type="html"><![CDATA[First Day as a Launcher]]></title>
+    <link href="http://yoursite.com/blog/2014/02/18/first-day-as-a-launcher/"/>
+    <updated>2014-02-18T08:00:52-05:00</updated>
+    <id>http://yoursite.com/blog/2014/02/18/first-day-as-a-launcher</id>
+    <content type="html"><![CDATA[<p>Yesterday was my first formal day at Launch Academy.  It was a wild experience, one that seemed a bit surreal.  After having worked at startups for sometime in a fairly non-technical role, it was great to be able to talk to other students about what technology excited them but more importantly what they actually wanted to BUILD with our new set of tools.</p>
+
+<p>Programming up until this point has really seemed like a solo adventure other than the one-off moment where I have to &ldquo;phone a friend&rdquo; because I am hopelessly stuck on something (friends, you know who you are &ndash; thank you!).  Today at Launch Academy though, was different.  Every desk we sit at is a pair-programming station, one that encourages collaboration and communication.  I am excited to continue this journey with and without rubber ducks.</p>
+
+<p>We met the team, all who seem very smart in their own right and eager to help.  Perhaps rather than eager to help, they are eager to challenge you and make you think about problem solving using a new paradigm.  I am under the impression these next 10 weeks will be intense.  We have a tremendous amount of independent learning responsibility outside the classroom but that seems to be where I shine.  I have an understanding of the teaching methods now, one that seems to suit me well an that is challenge-based learning.</p>
+
+<p>Ah challenged-based learning &ndash; give me a problem, a few tools, a few concepts and I&rsquo;m off and running.  Unlike most other RoR guides and tutorials, we&rsquo;re being asked to solve most real world problems which is exactly why I came here.  I regretfully gave up programming at an earlier age because too much of what I was doing was theoretical rather than practical.  This course seems to be a bit of both, but the focus of the curriculum is real world and that excites me.  Looking forward to this week!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[My First Post!]]></title>
-    <link href="http://yoursite.com/blog/2014/01/13/my-first-post/"/>
-    <updated>2014-01-13T21:40:28-08:00</updated>
-    <id>http://yoursite.com/blog/2014/01/13/my-first-post</id>
+    <link href="http://yoursite.com/blog/2014/01/14/my-first-post/"/>
+    <updated>2014-01-14T00:40:28-05:00</updated>
+    <id>http://yoursite.com/blog/2014/01/14/my-first-post</id>
     <content type="html"><![CDATA[<p>Happy January 13th everyone!  I&rsquo;m really excited today as I&rsquo;ve launched this blog using some wonderful Ruby on Rails gems.  Since this is my first post, I think I should explain where I am at today but also where I&rsquo;m coming from.</p>
 
 <p>Learning programming has been an on &amp; off again relationship &ndash; one that started when I was 13 and has continued to rear it&rsquo;s head time and time again.  This time though, as I&rsquo;m anxiously approaching the daunting year that I turn 30 &ndash; I have finally conceded to my own intuition.</p>
