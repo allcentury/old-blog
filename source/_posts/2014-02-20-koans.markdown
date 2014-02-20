@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Koans"
+date: 2014-02-20 07:02:45 -0500
+comments: true
+categories:
+---
+I've been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before.  For instance, if you have the following block of code:
+
+``` ruby Sandwich_Array
+array = [:peanut, :butter, :and, :jelly]
+```
+
+If you then run array[4,0] in IRB or Pry, you get a blank array (shown as '[]').  However, if you run array[5,0] you actually get nil.  At first I thought I did one of these wrong but after repeating the test multiple times, this keeps returning the same result.  After some slight internet digging, it appears Ruby holds some kind of "ghost" boundary that is 1 + array.length.  The Ruby docs mentions it briefly by saying that it's a special case (<a href="http://ruby-doc.org/core-1.9.3/Array.html#method-i-slice">here</a>).  Really though, I don't understand what's happening - so digging I shall continue.
+
+That said, after running through the array assignments, I'm even more confused.  In this example:
+
+``` ruby Cher
+first_name, last_name = ["Cher"]
+```
+Calling first_name returns us "Cher", which is expected.  However based on what I outlined above, you would think last_name which is just 1 outside the boundary would product '[]' but it infact produces nil.  And the mystery continues...
+
+Expect multiple blog posts about Koans as this is a long exercise!
