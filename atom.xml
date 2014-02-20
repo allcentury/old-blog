@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-02-19T18:34:36-05:00</updated>
+  <updated>2014-02-20T07:54:48-05:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Koans]]></title>
+    <link href="http://yoursite.com/blog/2014/02/20/koans/"/>
+    <updated>2014-02-20T07:02:45-05:00</updated>
+    <id>http://yoursite.com/blog/2014/02/20/koans</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before.  For instance, if you have the following block of code:</p>
+
+<figure class='code'><figcaption><span>Sandwich_Array</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:peanut</span><span class="p">,</span> <span class="ss">:butter</span><span class="p">,</span> <span class="ss">:and</span><span class="p">,</span> <span class="ss">:jelly</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you then run array[4,0] in IRB or Pry, you get a blank array (shown as &lsquo;[]&rsquo;).  However, if you run array[5,0] you actually get nil.  At first I thought I did one of these wrong but after repeating the test multiple times, this keeps returning the same result.  After some slight internet digging, it appears Ruby holds some kind of &ldquo;ghost&rdquo; boundary that is 1 + array.length.  The Ruby docs mentions it briefly by saying that it&rsquo;s a special case (<a href="http://ruby-doc.org/core-1.9.3/Array.html#method-i-slice">here</a>).  Really though, I don&rsquo;t understand what&rsquo;s happening &ndash; so digging I shall continue.</p>
+
+<p>That said, after running through the array assignments, I&rsquo;m even more confused.  In this example:</p>
+
+<figure class='code'><figcaption><span>Cher</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Cher&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Calling first_name returns us &ldquo;Cher&rdquo;, which is expected.  However based on what I outlined above, you would think last_name which is just 1 outside the boundry would product &lsquo;[]&rsquo; but it infact produces nil.  And the mystery continues&hellip;</p>
+
+<p>Expect multiple blog posts about Koans as this is a long exercise!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Up Up and ... Crash!]]></title>

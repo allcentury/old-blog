@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Up Up and ... Crash! - Anthony Ross' Blog</title>
+  <title>Koans - Anthony Ross' Blog</title>
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="Yesterday was a long one but thanks to my girlfriend &amp; my mom, I was able to get a good nights rest. I woke up a bit tired today but towards the &hellip;">
+  <meta name="description" content="I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoursite.com/blog/2014/02/19/up-up-and-dot-dot-dot-crash">
+  <link rel="canonical" href="http://yoursite.com/blog/2014/02/20/koans">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Anthony Ross' Blog" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Up Up and ... Crash!</h1>
+      <h1 class="entry-title">Koans</h1>
     
     
       <p class="meta">
@@ -84,53 +84,32 @@
   
 
 
-<time datetime="2014-02-19T18:18:21-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Yesterday was a long one but thanks to my girlfriend &amp; my mom, I was able to get a good nights rest.  I woke up a bit tired today but towards the end of the day I felt great.  Class sessions are going well, some problems seem easy while others are taking me a bit more time.  Why did writing a multiplications table take me 3 separate tries and an hour?  Sometimes I think half the battle of programming is simplifying the problem before coding.  I was trying multidimensional arrays with complex iterators to try and format the output to match the test case.</p>
+<div class="entry-content"><p>I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before.  For instance, if you have the following block of code:</p>
 
-<p>Then a fellow student came by and said he was struggling too &ndash; after a few moments talking to each other, we got this:</p>
-
-<figure class='code'><figcaption><span>Multiplications_Table</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">multiplication_table</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">size</span>
-</span><span class='line'>    <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>    <span class="n">y</span> <span class="o">+=</span><span class="mi">1</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">size</span>
-</span><span class='line'>      <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">size</span>
-</span><span class='line'>      <span class="nb">puts</span>
-</span><span class='line'>      <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>      <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
+<figure class='code'><figcaption><span>Sandwich_Array</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:peanut</span><span class="p">,</span> <span class="ss">:butter</span><span class="p">,</span> <span class="ss">:and</span><span class="p">,</span> <span class="ss">:jelly</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Well duh.  Our lead mentor (Adam) encouraged us to solve a problem known a few years back in the hiring world, a little test called FizzBuzz.  The solution is all over the internet so I won&rsquo;t post it, but shame on you if you&rsquo;re reading this looking for the answer!  I can&rsquo;t speak as to why other developers can&rsquo;t solve this problem but I&rsquo;m glad we talked about it in class.</p>
+<p>If you then run array[4,0] in IRB or Pry, you get a blank array (shown as &lsquo;[]&rsquo;).  However, if you run array[5,0] you actually get nil.  At first I thought I did one of these wrong but after repeating the test multiple times, this keeps returning the same result.  After some slight internet digging, it appears Ruby holds some kind of &ldquo;ghost&rdquo; boundary that is 1 + array.length.  The Ruby docs mentions it briefly by saying that it&rsquo;s a special case (<a href="http://ruby-doc.org/core-1.9.3/Array.html#method-i-slice">here</a>).  Really though, I don&rsquo;t understand what&rsquo;s happening &ndash; so digging I shall continue.</p>
+
+<p>That said, after running through the array assignments, I&rsquo;m even more confused.  In this example:</p>
+
+<figure class='code'><figcaption><span>Cher</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Cher&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Calling first_name returns us &ldquo;Cher&rdquo;, which is expected.  However based on what I outlined above, you would think last_name which is just 1 outside the boundry would product &lsquo;[]&rsquo; but it infact produces nil.  And the mystery continues&hellip;</p>
+
+<p>Expect multiple blog posts about Koans as this is a long exercise!</p>
 </div>
 
 
@@ -153,7 +132,7 @@
   
 
 
-<time datetime="2014-02-19T18:18:21-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
       
 
 
@@ -161,7 +140,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/blog/2014/02/19/up-up-and-dot-dot-dot-crash/" data-via="djanthonyross" data-counturl="http://yoursite.com/blog/2014/02/19/up-up-and-dot-dot-dot-crash/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/blog/2014/02/20/koans/" data-via="djanthonyross" data-counturl="http://yoursite.com/blog/2014/02/20/koans/" >Tweet</a>
   
   
   
@@ -170,10 +149,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/18/day-2-as-a-launcher/" title="Previous Post: Day 2 as a Launcher">&laquo; Day 2 as a Launcher</a>
+        <a class="basic-alignment left" href="/blog/2014/02/19/up-up-and-dot-dot-dot-crash/" title="Previous Post: Up Up and ... Crash!">&laquo; Up Up and ... Crash!</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/koans/" title="Next Post: Koans">Koans &raquo;</a>
       
     </p>
   </footer>
