@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://allcentury.github.io/sitemap.xml 
