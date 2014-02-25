@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-02-22T11:25:52-05:00</updated>
+  <updated>2014-02-25T12:02:55-05:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RegEx]]></title>
+    <link href="http://allcentury.github.io/blog/2014/02/25/regex/"/>
+    <updated>2014-02-25T11:51:16-05:00</updated>
+    <id>http://allcentury.github.io/blog/2014/02/25/regex</id>
+    <content type="html"><![CDATA[<p>I think about all the tens of thousands(more?) of online forms I&rsquo;ve filled in over the years.  I&rsquo;d like to think myself or my Chrome auto-fill has done fairly good work.  However, after spending the last 24hrs on RegEx I&rsquo;m certain that I got so good at entering forms because of how good the validation was on all the sites I&rsquo;ve been using.</p>
+
+<p>The web has been training me to enter in forms as they expect, phone numbers with or without dashes or passwords that contain a certain amount of some characters, some digits, some capital, etc.  Prior to learning RegEx I really had no clue how all of those validations were done without a lot of code and while I appreciate the amount of code it actually takes to validate input, it sure is hard to read!</p>
+
+<p>It might almost be passé to complain about RegEx as of 2014 but I found a video that pretty much sums up what it&rsquo;s like to try and refine your projects to have less code:</p>
+
+<iframe width="560" height="315" src="http://allcentury.github.io//www.youtube.com/embed/Om11M9LYJak" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 1 Reflection]]></title>
