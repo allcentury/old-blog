@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-02-28T07:23:29-05:00</updated>
+  <updated>2014-02-28T07:25:31-05:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -55,7 +55,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This method above iterates over a nested hash and checks if the ingredients on a menu includes eggs.  That part isn&rsquo;t really important, it&rsquo;s the magic of line 21.  When the program runs, it will stop dead in it&rsquo;s tracks (though not error) at line 21.  I can then ask the program what the value of every variable is above line 21.  Can I possibly remember what all of those are, at each instance?  No way, I&rsquo;m just a simpleton.  With pry though, I can easily validate my results and even more importantly find the problematic lines with ease.  My favorite part about pry though is being able to type &ldquo;next&rdquo; and/or &ldquo;continue&rdquo; to walk through the program, line by line (still amazed by this).  If I had a tool like this in high school I think things would have ended up a lot differently for me&hellip;</p>
+<p>This method above iterates over a nested hash and checks if the ingredients on a menu includes eggs.  That part isn&rsquo;t really important, it&rsquo;s the magic of line 6.  When the program runs, it will stop dead in it&rsquo;s tracks (though not error) at line 6.  I can then ask the program what the value of every variable is above line 6.  Can I possibly remember what all of those are, at each instance?  No way, I&rsquo;m just a simpleton.  With pry though, I can easily validate my results and even more importantly find the problematic lines with ease.  My favorite part about pry though is being able to type &ldquo;next&rdquo; and/or &ldquo;continue&rdquo; to walk through the program, line by line (still amazed by this).  If I had a tool like this in high school I think things would have ended up a lot differently for me&hellip;</p>
 ]]></content>
   </entry>
   
