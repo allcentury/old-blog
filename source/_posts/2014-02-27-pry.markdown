@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Pry"
+date: 2014-02-27 20:57:10 -0500
+comments: true
+categories:
+---
+Launch Academy started off a bit slow this week at least for me.  Friday we received a challenge that I was able to solve by Monday morning but it wasn't easy.  I got very familiar with nested data structures quickly and I think after endless tinkering I got the program working.
+
+That said, the rest of the class really struggled with the exercise and because of that the load was lessened for a few days.  I did have some non-core exercises I got to work on, including some additional nested/compound data structures and I got to use a lovely little gem named Sinatra.
+
+However, Sinatra is not the focus of this post - my new workflow is.  In high school, I was forced to test my code with endless print statements like "x here should be 2", or "this will never get printed to the screen" (yet it always got printed to the screen).  Enter a ruby gem called 'pry'.  If it sounds invasive, it is!  Imagine the ability to stop your program in mid-thought and ask all the questions, you've always wanted...
+
+``` ruby Pry
+def monthly_egg_count
+  total = 0
+  restaurants.each do |rest, v| #rest = Restaurant v = hours, meals
+    v[:meals].each do |sub_k, sub_v| #sub_v = breakfast, lunch, dinner
+      sub_v.each do |name, value|
+        binding.pry
+       if value[:ingredients].include?("eggs")
+        total += v[:hours] * 8 * 2 * 30
+       end
+      end
+    end
+  end
+  total
+end
+```
+This method above iterates over a nested hash and checks if the ingredients on a menu includes eggs.  That part isn't really important, it's the magic of line 21.  When the program runs, it will stop dead in it's tracks (though not error) at line 21.  I can then ask the program what the value of every variable is above line 21.  Can I possibly remember what all of those are, at each instance?  No way, I'm just a simpleton.  With pry though, I can easily validate my results and even more importantly find the problematic lines with ease.  My favorite part about pry though is being able to type "next" and/or "continue" to walk through the program, line by line (still amazed by this).  If I had a tool like this in high school I think things would have ended up a lot differently for me...
+
