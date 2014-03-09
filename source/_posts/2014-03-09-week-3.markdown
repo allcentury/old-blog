@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Week 3"
+date: 2014-03-09 15:12:21 -0400
+comments: true
+categories:
+---
+The blog was quiet this week - not because I didn't learn anything but because it's hard to speak and communicate about concepts that are so new.  That said, each day I learned a lot and the pieces of puzzle are becoming ever more clear.
+
+We started the week with Object Oriented Principles.  In our prework we read Sandy Metz's book Object Oriented Design and at that time it was a little hard to take it all in.  After coding some OOP challenges both individually and in pairs, I've learned a lot.  I've learned how objects really do shape the very contruct of our programs and why it is best practice to keep your objects simple and concise.
+
+Later in the week we started to put TDD (Test Driven Development) into practice.  TDD, which I can poorly describe in one sentence as the computer programming paradigm that asks you to write tests before you write any code.  This might sound weird but after doing it myself for the last 3 days, I can say that I'm hooked!  TDD forces me to do a few things - 1.) it makes me outline everything before I code and 2.) it keeps me on task.
+
+I struggle with the hundred "what if's" while coding but TDD squashes those thoughts.  It forces me to make my tests pass, one by one thereby eliminating any potential squandering.  The hardest part about TDD was how far to test the boundaries of the Right BICEP model but I'm sure that will come with experience!
