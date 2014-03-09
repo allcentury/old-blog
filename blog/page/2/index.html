@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Koans - Anthony Ross' Blog</title>
+  <title>Anthony Ross' Blog</title>
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before. &hellip;">
+  <meta name="description" content="Happy January 13th everyone! I&rsquo;m really excited today as I&rsquo;ve launched this blog using some wonderful Ruby on Rails gems. Since this is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://allcentury.github.io/blog/2014/02/20/koans">
+  <link rel="canonical" href="http://allcentury.github.io/blog/page/2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Anthony Ross' Blog" type="application/atom+xml">
@@ -76,12 +76,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Koans</h1>
+      <h1 class="entry-title"><a href="/blog/2014/01/14/my-first-post/">My First Post!</a></h1>
     
     
       <p class="meta">
@@ -97,82 +100,39 @@
   
 
 
-<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+<time datetime="2014-01-14T00:40:28-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before.  For instance, if you have the following block of code:</p>
+  <div class="entry-content"><p>Happy January 13th everyone!  I&rsquo;m really excited today as I&rsquo;ve launched this blog using some wonderful Ruby on Rails gems.  Since this is my first post, I think I should explain where I am at today but also where I&rsquo;m coming from.</p>
 
-<figure class='code'><figcaption><span>Sandwich_Array</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:peanut</span><span class="p">,</span> <span class="ss">:butter</span><span class="p">,</span> <span class="ss">:and</span><span class="p">,</span> <span class="ss">:jelly</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>Learning programming has been an on &amp; off again relationship &ndash; one that started when I was 13 and has continued to rear it&rsquo;s head time and time again.  This time though, as I&rsquo;m anxiously approaching the daunting year that I turn 30 &ndash; I have finally conceded to my own intuition.</p>
 
+<p>See back in High School, I coded and I coded hard.  I had 3 machines running Linux. I wrote a script that made my mom solve complex math problems before she could log onto the machine (she loved this &ndash; I swear.  I called it the &ldquo;logger logger&rdquo;), I had auto-responders on IRC before there was a bot to do that and I eventually made a program that enabled me to write plain text (in English) and it would spit out my Spanish homework.</p>
 
-<p>If you then run array[4,0] in IRB or Pry, you get a blank array (shown as &lsquo;[]&rsquo;).  However, if you run array[5,0] you actually get nil.  At first I thought I did one of these wrong but after repeating the test multiple times, this keeps returning the same result.  After some slight internet digging, it appears Ruby holds some kind of &ldquo;ghost&rdquo; boundary that is 1 + array.length.  The Ruby docs mentions it briefly by saying that it&rsquo;s a special case (<a href="http://ruby-doc.org/core-1.9.3/Array.html#method-i-slice">here</a>).  Really though, I don&rsquo;t understand what&rsquo;s happening &ndash; so digging I shall continue.</p>
+<p>However, at the age of 18 &ndash; I convinced myself that coding wasn&rsquo;t a &ldquo;creative endeavor&rdquo;.  That it wasn&rsquo;t going to be where I left my mark on the world and that I should try something else.  I went to college, studied business and eventually hung up my programming hat for a while.</p>
 
-<p>That said, after running through the array assignments, I&rsquo;m even more confused.  In this example:</p>
+<p>After a series of mediocre jobs, none that really intrigued me or asked me to solve any real-world issues, I came back to programming with a new sense of purpose.  I didn&rsquo;t know what that purpose was, I just knew that I was underutilized in my job and therefore wanted to try my hand at developing again.  I&rsquo;m more experienced in life and in business, but more importantly I have a firm understanding of certain areas in the world that have gaps &ndash; some that I think I can help overcome.</p>
 
-<figure class='code'><figcaption><span>Cher</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Cher&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Calling first_name returns us &ldquo;Cher&rdquo;, which is expected.  However based on what I outlined above, you would think last_name which is just 1 outside the boundary would product &lsquo;[]&rsquo; but it infact produces nil.  And the mystery continues&hellip;</p>
-
-<p>Expect multiple blog posts about Koans as this is a long exercise!</p>
+<p>In the end, my goal here is a bit selfish, that is to make a better me &ndash; one that involves a life and a career that makes me a forever student.  I’m the last person to claim to know everything and I think this future career in development fits that mindset, perfectly.</p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Anthony Ross</span></span>
-
-      
-
-
-
-
-
-
-
-
   
 
 
-<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
-      
-
-
-    </p>
+    </article>
+  
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/02/20/koans/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/02/20/koans/" >Tweet</a>
-  
-  
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2014/02/19/up-up-and-dot-dot-dot-crash/" title="Previous Post: Up Up and ... Crash!">&laquo; Up Up and ... Crash!</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/hiring-partners-day-1/" title="Next Post: Hiring Partners Day 1">Hiring Partners Day 1 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -205,7 +165,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/allcentury">@allcentury</a> on GitHub
@@ -246,7 +206,6 @@
 
   
 </aside>
-
 
     </div>
   </div>

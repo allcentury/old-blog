@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-03-01T15:44:27-05:00</updated>
+  <updated>2014-03-09T15:49:58-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3]]></title>
+    <link href="http://allcentury.github.io/blog/2014/03/09/week-3/"/>
+    <updated>2014-03-09T15:12:21-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/03/09/week-3</id>
+    <content type="html"><![CDATA[<p>The blog was quiet this week &ndash; not because I didn&rsquo;t learn anything but because it&rsquo;s hard to speak and communicate about concepts that are so new.  That said, each day I learned a lot and the pieces of puzzle are becoming ever more clear.</p>
+
+<p>We started the week with Object Oriented Principles.  In our prework we read Sandy Metz&rsquo;s book Object Oriented Design and at that time it was a little hard to take it all in.  After coding some OOP challenges both individually and in pairs, I&rsquo;ve learned a lot.  I&rsquo;ve learned how objects really do shape the very contruct of our programs and why it is best practice to keep your objects simple and concise.</p>
+
+<p>Later in the week we started to put TDD (Test Driven Development) into practice.  TDD, which I can poorly describe in one sentence as the computer programming paradigm that asks you to write tests before you write any code.  This might sound weird but after doing it myself for the last 3 days, I can say that I&rsquo;m hooked!  TDD forces me to do a few things &ndash; 1.) it makes me outline everything before I code and 2.) it keeps me on task.</p>
+
+<p>I struggle with the hundred &ldquo;what if&rsquo;s&rdquo; while coding but TDD squashes those thoughts.  It forces me to make my tests pass, one by one thereby eliminating any potential squandering.  The hardest part about TDD was how far to test the boundaries of the Right BICEP model but I&rsquo;m sure that will come with experience!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Data Structures]]></title>

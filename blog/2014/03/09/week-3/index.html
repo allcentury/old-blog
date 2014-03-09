@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Koans - Anthony Ross' Blog</title>
+  <title>Week 3 - Anthony Ross' Blog</title>
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before. &hellip;">
+  <meta name="description" content="The blog was quiet this week &ndash; not because I didn&rsquo;t learn anything but because it&rsquo;s hard to speak and communicate about concepts &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://allcentury.github.io/blog/2014/02/20/koans">
+  <link rel="canonical" href="http://allcentury.github.io/blog/2014/03/09/week-3">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Anthony Ross' Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Koans</h1>
+      <h1 class="entry-title">Week 3</h1>
     
     
       <p class="meta">
@@ -97,32 +97,20 @@
   
 
 
-<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+<time datetime="2014-03-09T15:12:21-04:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I&rsquo;ve been working through the Koans exercises in my free time (hah?) and have learned some things about the ruby language I never knew before.  For instance, if you have the following block of code:</p>
+<div class="entry-content"><p>The blog was quiet this week &ndash; not because I didn&rsquo;t learn anything but because it&rsquo;s hard to speak and communicate about concepts that are so new.  That said, each day I learned a lot and the pieces of puzzle are becoming ever more clear.</p>
 
-<figure class='code'><figcaption><span>Sandwich_Array</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:peanut</span><span class="p">,</span> <span class="ss">:butter</span><span class="p">,</span> <span class="ss">:and</span><span class="p">,</span> <span class="ss">:jelly</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>We started the week with Object Oriented Principles.  In our prework we read Sandy Metz&rsquo;s book Object Oriented Design and at that time it was a little hard to take it all in.  After coding some OOP challenges both individually and in pairs, I&rsquo;ve learned a lot.  I&rsquo;ve learned how objects really do shape the very contruct of our programs and why it is best practice to keep your objects simple and concise.</p>
 
+<p>Later in the week we started to put TDD (Test Driven Development) into practice.  TDD, which I can poorly describe in one sentence as the computer programming paradigm that asks you to write tests before you write any code.  This might sound weird but after doing it myself for the last 3 days, I can say that I&rsquo;m hooked!  TDD forces me to do a few things &ndash; 1.) it makes me outline everything before I code and 2.) it keeps me on task.</p>
 
-<p>If you then run array[4,0] in IRB or Pry, you get a blank array (shown as &lsquo;[]&rsquo;).  However, if you run array[5,0] you actually get nil.  At first I thought I did one of these wrong but after repeating the test multiple times, this keeps returning the same result.  After some slight internet digging, it appears Ruby holds some kind of &ldquo;ghost&rdquo; boundary that is 1 + array.length.  The Ruby docs mentions it briefly by saying that it&rsquo;s a special case (<a href="http://ruby-doc.org/core-1.9.3/Array.html#method-i-slice">here</a>).  Really though, I don&rsquo;t understand what&rsquo;s happening &ndash; so digging I shall continue.</p>
-
-<p>That said, after running through the array assignments, I&rsquo;m even more confused.  In this example:</p>
-
-<figure class='code'><figcaption><span>Cher</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Cher&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Calling first_name returns us &ldquo;Cher&rdquo;, which is expected.  However based on what I outlined above, you would think last_name which is just 1 outside the boundary would product &lsquo;[]&rsquo; but it infact produces nil.  And the mystery continues&hellip;</p>
-
-<p>Expect multiple blog posts about Koans as this is a long exercise!</p>
+<p>I struggle with the hundred &ldquo;what if&rsquo;s&rdquo; while coding but TDD squashes those thoughts.  It forces me to make my tests pass, one by one thereby eliminating any potential squandering.  The hardest part about TDD was how far to test the boundaries of the Right BICEP model but I&rsquo;m sure that will come with experience!</p>
 </div>
 
 
@@ -145,7 +133,7 @@
   
 
 
-<time datetime="2014-02-20T07:02:45-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+<time datetime="2014-03-09T15:12:21-04:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
       
 
 
@@ -153,7 +141,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/02/20/koans/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/02/20/koans/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/03/09/week-3/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/03/09/week-3/" >Tweet</a>
   
   
   
@@ -162,10 +150,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/19/up-up-and-dot-dot-dot-crash/" title="Previous Post: Up Up and ... Crash!">&laquo; Up Up and ... Crash!</a>
+        <a class="basic-alignment left" href="/blog/2014/03/01/data-structures/" title="Previous Post: Data Structures">&laquo; Data Structures</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/hiring-partners-day-1/" title="Next Post: Hiring Partners Day 1">Hiring Partners Day 1 &raquo;</a>
       
     </p>
   </footer>
