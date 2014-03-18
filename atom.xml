@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-03-09T15:49:58-04:00</updated>
+  <updated>2014-03-18T19:22:12-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 4 as a Launcher]]></title>
+    <link href="http://allcentury.github.io/blog/2014/03/18/week-4-as-a-launcher/"/>
+    <updated>2014-03-18T18:44:35-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/03/18/week-4-as-a-launcher</id>
+    <content type="html"><![CDATA[<p>A week of no blog posts again?  Are you serious?  I know, I know &ndash; fingers must be pointed.  That said, I don&rsquo;t think you&rsquo;d want to read a blog post of mine after 12 or more hours of coding in a single day.</p>
+
+<p>Week 4 was awesome though as a number of things came together for me.  First we finally got into rails and I mean dug down deep!  The mysteries of ActiveRecord came to light and the SQL queries emerged (ya ya ya, I know you can see them on the command line).  We spent a good 2 days on SQL and that really helped me when it came to ActiveRecord.</p>
+
+<p>We also touched on ActiveModel, ActionPack &amp; ActiveSupport which is helping me tremendously with older rails projects I had started prior to LA.  Here were some other highlights:</p>
+
+<ul>
+<li><p>MVC will probably be the initials of my first child &ndash; as Dan said, we really need to take this idea to heart.</p></li>
+<li><p>I think I have my idea for my breakable toy (thnk of my breakable toy project as my LA final project)</p></li>
+<li><p>I got good with SQL sub-queries</p></li>
+</ul>
+
+
+<hr />
+
+<p>Week 5 has been focused on ActiveRecord and database schema which has been awesome!  I&rsquo;ll be sure update the blog with more as I go through all the work.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 3]]></title>
