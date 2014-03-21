@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-03-18T19:22:12-04:00</updated>
+  <updated>2014-03-21T18:32:33-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AR = Launcher * .5]]></title>
+    <link href="http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5/"/>
+    <updated>2014-03-21T17:56:51-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5</id>
+    <content type="html"><![CDATA[<p>I am now half launcher, half I have no idea what I&rsquo;m doing.  It feels good &ndash; mostly.  The last few weeks have been especially rewarding because projects are starting to take shape.</p>
+
+<p>We&rsquo;ve spent the last week really focused on ActiveRecord and my explicit nature has cursed the Object Association Gods.  It&rsquo;s a little too easy, isn&rsquo;t it?</p>
+
+<p>In SQL I have to do:</p>
+
+<figure class='code'><figcaption><span>movie_search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="o">*</span>
+</span><span class='line'>  <span class="k">FROM</span> <span class="n">movies</span>
+</span><span class='line'>    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">rating</span> <span class="k">DESC</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>in ActiveRecord the statement is simply:</p>
+
+<figure class='code'><figcaption><span>movie_search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Movie</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="ss">rating</span><span class="p">:</span> <span class="ss">:desc</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The relationships though are really where ActiveRecord starts to do some magic.  In SQL you have to join tables together like</p>
+
+<figure class='code'><figcaption><span>movie_studio</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">movies</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="n">studios</span><span class="p">.</span><span class="n">name</span>
+</span><span class='line'>  <span class="k">FROM</span> <span class="n">movies</span>
+</span><span class='line'>    <span class="k">JOIN</span> <span class="n">studios</span>
+</span><span class='line'>      <span class="k">ON</span> <span class="n">movies</span><span class="p">.</span><span class="n">studio_id</span> <span class="o">=</span> <span class="n">studios</span><span class="p">.</span><span class="n">id</span>
+</span><span class='line'>        <span class="k">WHERE</span> <span class="n">studio</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>However in ActiveRecord:</p>
+
+<figure class='code'><figcaption><span>movie_studio</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Movie</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">studio</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well.  Can&rsquo;t really argue with that, can you?</p>
+
+<p>All in all, the last 5 weeks have been awesome!  I&rsquo;ve been tinkering with rails for a bit now and while tutorials are great, I&rsquo;ve felt like I&rsquo;ve really dived under the hood at Launch Academy and it&rsquo;s infinitely increased my learning power &amp; potential.  Ending today on a high!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 4 as a Launcher]]></title>

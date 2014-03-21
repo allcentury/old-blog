@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 1 Reflection - Anthony Ross' Blog</title>
+  <title>AR = Launcher * .5 - Anthony Ross' Blog</title>
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="Week 1 is a wrap! While I spent most of the time &ldquo;in the weeds&rdquo; I tried my best to reflect on each day as it went. Sometimes it&rsquo;s &hellip;">
+  <meta name="description" content="I am now half launcher, half I have no idea what I&rsquo;m doing. It feels good &ndash; mostly. The last few weeks have been especially rewarding &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://allcentury.github.io/blog/2014/02/22/week-1-reflection">
+  <link rel="canonical" href="http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Anthony Ross' Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Week 1 Reflection</h1>
+      <h1 class="entry-title">AR = Launcher * .5</h1>
     
     
       <p class="meta">
@@ -97,31 +97,60 @@
   
 
 
-<time datetime="2014-02-22T10:54:18-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
+<time datetime="2014-03-21T17:56:51-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Week 1 is a wrap!  While I spent most of the time &ldquo;in the weeds&rdquo; I tried my best to reflect on each day as it went.  Sometimes it&rsquo;s easy to put into words what I learned that day, other times it&rsquo;s a bit more abstract.</p>
+<div class="entry-content"><p>I am now half launcher, half I have no idea what I&rsquo;m doing.  It feels good &ndash; mostly.  The last few weeks have been especially rewarding because projects are starting to take shape.</p>
 
-<p>The most valuable tool I learned this week was in regards to workflow.  Specifically, I think pair programming is fantastic!
-So many times I&rsquo;ve stared at a problem for hours which only seems to make matters worse.  However in the pair programming world, you can take a step back, let your partner drive for a bit and think about the problem at a higher level.  This was especially nice for me as I never spent white boarding problems (ever) until this week and it drastically changed my problem solving skills (for the better).</p>
+<p>We&rsquo;ve spent the last week really focused on ActiveRecord and my explicit nature has cursed the Object Association Gods.  It&rsquo;s a little too easy, isn&rsquo;t it?</p>
 
-<p>While I know pair programming generally consists of two people, I actually had a third in my group this week.  However, myself and Greg were at a very similar experience level but Dan wasn&rsquo;t as comfortable with ruby yet.  Greg and I would debate and debate over complex ideas but it wasn&rsquo;t until we both tried to explain our ideas to Dan that we realized we were over complicating the problem.  I mention this because pair programming doesn&rsquo;t require you pair with someone at your same level, in fact we think having Dan there forced us to explain our rationale in a very detailed way which sometimes lead us to a different approach.</p>
+<p>In SQL I have to do:</p>
 
-<p>The next big item for me was context.  You can imagine after reading 5 different books on RoR and watching countless videos on my own, that my internal dictionary of terms and their definitions were getting a bit scrambled.  Having the lectures really cemented ideas about ruby that I had previously read about.  It also allowed me to speak to my peers more explicitly which then helped me communicate my ideas regarding the problem at hand.</p>
+<figure class='code'><figcaption><span>movie_search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="o">*</span>
+</span><span class='line'>  <span class="k">FROM</span> <span class="n">movies</span>
+</span><span class='line'>    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">rating</span> <span class="k">DESC</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>With all that said, I&rsquo;m a bit afraid my normal communication might be suffering a bit.  Last night at dinner while wearing a sweatshirt covered in reindeers, I was trying to find the word to describe said sweatshirt.  Instead though, I just started spitting out random ruby&hellip; NameError: undefined sweatshirt. Then when I wanted to ask if the dishwasher had been emptied I spewed: dishwasher.isempty?</p>
 
-<p>&hellip; crickets &hellip;</p>
+<p>in ActiveRecord the statement is simply:</p>
 
-<p>&ldquo;Are you looking for the word festive?&rdquo;, she said.  YES!</p>
+<figure class='code'><figcaption><span>movie_search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Movie</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="ss">rating</span><span class="p">:</span> <span class="ss">:desc</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>sweatshirt.festive?</p>
 
-<p>That <em>should</em> certainly return true&hellip;</p>
+<p>The relationships though are really where ActiveRecord starts to do some magic.  In SQL you have to join tables together like</p>
+
+<figure class='code'><figcaption><span>movie_studio</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="n">movies</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="n">studios</span><span class="p">.</span><span class="n">name</span>
+</span><span class='line'>  <span class="k">FROM</span> <span class="n">movies</span>
+</span><span class='line'>    <span class="k">JOIN</span> <span class="n">studios</span>
+</span><span class='line'>      <span class="k">ON</span> <span class="n">movies</span><span class="p">.</span><span class="n">studio_id</span> <span class="o">=</span> <span class="n">studios</span><span class="p">.</span><span class="n">id</span>
+</span><span class='line'>        <span class="k">WHERE</span> <span class="n">studio</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>However in ActiveRecord:</p>
+
+<figure class='code'><figcaption><span>movie_studio</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Movie</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">studio</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well.  Can&rsquo;t really argue with that, can you?</p>
+
+<p>All in all, the last 5 weeks have been awesome!  I&rsquo;ve been tinkering with rails for a bit now and while tutorials are great, I&rsquo;ve felt like I&rsquo;ve really dived under the hood at Launch Academy and it&rsquo;s infinitely increased my learning power &amp; potential.  Ending today on a high!</p>
 </div>
 
 
@@ -144,7 +173,7 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
   
 
 
-<time datetime="2014-02-22T10:54:18-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
+<time datetime="2014-03-21T17:56:51-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
       
 
 
@@ -152,7 +181,7 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/02/22/week-1-reflection/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/02/22/week-1-reflection/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5/" >Tweet</a>
   
   
   
@@ -161,10 +190,8 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/20/hiring-partners-day-1/" title="Previous Post: Hiring Partners Day 1">&laquo; Hiring Partners Day 1</a>
+        <a class="basic-alignment left" href="/blog/2014/03/18/week-4-as-a-launcher/" title="Previous Post: Week 4 as a Launcher">&laquo; Week 4 as a Launcher</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/25/regex/" title="Next Post: RegEx">RegEx &raquo;</a>
       
     </p>
   </footer>
