@@ -9,7 +9,7 @@
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="I am now half launcher, half I have no idea what I&rsquo;m doing. It feels good &ndash; mostly. The last few weeks have been especially rewarding &hellip;">
+  <meta name="description" content="Week 7 is a wrap! I&rsquo;ve only aged 7 weeks but I feel like I&rsquo;ve learned more in that amount of time than all those years of college. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/04/acceptance-testing/">Acceptance Testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-04T16:59:47-04:00" pubdate data-updated="true">Apr 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Week 7 is a wrap!  I&rsquo;ve only aged 7 weeks but I feel like I&rsquo;ve learned more in that amount of time than all those years of college.  Programming and web development in general, is simply a snowball ride.  You start with a snowball about the size of a peanut and with enough momentum, well&hellip;</p>
+
+<p><img src="http://activerain.com/image_store/uploads/3/7/7/1/3/ar136019602731773.jpg"></p>
+
+<p>So that said, I certainly understand the need to keep going at this pace (unsure how sustainable that is but we&rsquo;ll see).</p>
+
+<p>To bring you up to speed, since my last we&rsquo;ve done a lot!  In the last 2 weeks, we&rsquo;ve really gotten into using TDD in rails and it&rsquo;s been a bit hard.  While TDD was more straightforward regarding unit tests, I never even thought about testing my web application with tests.  I thought my fumbling around each page, trying to &lsquo;break it&rsquo;, was sufficient enough.</p>
+
+<p>If you&rsquo;re unfamiliar with outside-in development and acceptance tests, the path to follow is generally:</p>
+
+<p><img src="http://coding-is-like-cooking.info/wp-content/uploads/2013/05/london_school_001.jpg"></p>
+
+<p>An acceptance test is really just a user experience on your site and thanks to some gems like Capybara I&rsquo;m able to actually move through my web application without going to my web application.  Is there a form on the home page you need to fill out?  Well I can test that, not only that form is there, that it has the right fields and given the right (or wrong) data, it will do something.</p>
+
+<p>Imagine how many ways you try and break those forms, give it a name when it needs a number, a number when it needs an email, and the list goes on &amp; on.   Thankfully if I just write some automated tests once, I can reuse those time and time again making my application even more failsafe.</p>
+
+<p>I&rsquo;m excited to finish the next 3 weeks strong but I&rsquo;m hopeful I land at a place that will continue to let me grow at this pace!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -559,81 +611,6 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/19/up-up-and-dot-dot-dot-crash/">Up Up and &#8230; Crash!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-19T18:18:21-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Yesterday was a long one but thanks to my girlfriend &amp; my mom, I was able to get a good nights rest.  I woke up a bit tired today but towards the end of the day I felt great.  Class sessions are going well, some problems seem easy while others are taking me a bit more time.  Why did writing a multiplications table take me 3 separate tries and an hour?  Sometimes I think half the battle of programming is simplifying the problem before coding.  I was trying multidimensional arrays with complex iterators to try and format the output to match the test case.</p>
-
-<p>Then a fellow student came by and said he was struggling too &ndash; after a few moments talking to each other, we got this:</p>
-
-<figure class='code'><figcaption><span>Multiplications_Table</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">multiplication_table</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">size</span>
-</span><span class='line'>    <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>    <span class="n">y</span> <span class="o">+=</span><span class="mi">1</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">size</span>
-</span><span class='line'>      <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">size</span>
-</span><span class='line'>      <span class="nb">puts</span>
-</span><span class='line'>      <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>      <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Well duh.  Our lead mentor (Adam) encouraged us to solve a problem known a few years back in the hiring world, a little test called FizzBuzz.  The solution is all over the internet so I won&rsquo;t post it, but shame on you if you&rsquo;re reading this looking for the answer!  I can&rsquo;t speak as to why other developers can&rsquo;t solve this problem but I&rsquo;m glad we talked about it in class.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -649,6 +626,10 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/04/acceptance-testing/">Acceptance Testing</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/21/ar-equals-launcher-star-5/">AR = Launcher * .5</a>
       </li>
     
@@ -662,10 +643,6 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
     
       <li class="post">
         <a href="/blog/2014/03/01/data-structures/">Data Structures</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/27/pry/">Pry</a>
       </li>
     
   </ul>
