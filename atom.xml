@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-04-09T17:33:50-04:00</updated>
+  <updated>2014-04-09T17:34:13-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -24,7 +24,7 @@
 
 <p>So that said, I certainly understand the need to keep going at this pace (unsure how sustainable that is but we&rsquo;ll see).</p>
 
-<p>To bring you up to speed, since my last psot we&rsquo;ve done a lot!  In the last 2 weeks, we&rsquo;ve really gotten into using TDD in rails and it&rsquo;s been a bit hard.  While TDD was more straightforward regarding unit tests, I never even thought about testing my web application with tests.  I thought my fumbling around each page, trying to &lsquo;break it&rsquo;, was sufficient enough.</p>
+<p>To bring you up to speed, since my last post we&rsquo;ve done a lot!  In the last 2 weeks, we&rsquo;ve really gotten into using TDD in rails and it&rsquo;s been a bit hard.  While TDD was more straightforward regarding unit tests, I never even thought about testing my web application with tests.  I thought my fumbling around each page, trying to &lsquo;break it&rsquo;, was sufficient enough.</p>
 
 <p>If you&rsquo;re unfamiliar with outside-in development and acceptance tests, the path to follow is generally:</p>
 
