@@ -7,11 +7,11 @@ categories:
 ---
 Week 7 is a wrap!  I've only aged 7 weeks but I feel like I've learned more in that amount of time than all those years of college.  Programming and web development in general, is simply a snowball ride.  You start with a snowball about the size of a peanut and with enough momentum, well...
 
-{% img http://activerain.com/image_store/uploads/3/7/7/1/3/ar136019602731773.jpg %}
+{% img http://www.clearpointcreditcounselingsolutions.org/wp-content/uploads/Debt-Snowball-Method-Building-Momentum.jpg %}
 
 So that said, I certainly understand the need to keep going at this pace (unsure how sustainable that is but we'll see).
 
-To bring you up to speed, since my last we've done a lot!  In the last 2 weeks, we've really gotten into using TDD in rails and it's been a bit hard.  While TDD was more straightforward regarding unit tests, I never even thought about testing my web application with tests.  I thought my fumbling around each page, trying to 'break it', was sufficient enough.
+To bring you up to speed, since my last post we've done a lot!  In the last 2 weeks, we've really gotten into using TDD in rails and it's been a bit hard.  While TDD was more straightforward regarding unit tests, I never even thought about testing my web application with tests.  I thought my fumbling around each page, trying to 'break it', was sufficient enough.
 
 If you're unfamiliar with outside-in development and acceptance tests, the path to follow is generally:
 
