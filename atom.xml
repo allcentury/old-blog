@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-04-09T17:34:13-04:00</updated>
+  <updated>2014-07-03T14:34:58-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,175 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Geocoder, RSpec 3 and Rails 4]]></title>
+    <link href="http://allcentury.github.io/blog/2014/07/03/geocoder-rspec-3-and-rails-4/"/>
+    <updated>2014-07-03T13:45:23-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/07/03/geocoder-rspec-3-and-rails-4</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been working on a project that utilizes the Geocoder gem and as an avid
+TDD&#8217;r I was trying to prevent my tests from hitting Google&rsquo;s servers a million
+times.  Frankly I run my test suite a lot throughout the course of a day so
+having this was necessary because I hit Google&rsquo;s limits a few times.</p>
+
+<p>Here&rsquo;s my set-up which somewhat similar to Samuel Mullen&rsquo;s with more of a focus on RSpec.</p>
+
+<p><code>Gemfile</code>:</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;fakeweb&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a new file, I put mine under <code>spec/support</code> called <code>geocoder.rb</code></p>
+
+<figure class='code'><figcaption><span>geocoder.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">google_json</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">JSON</span>
+</span><span class='line'><span class="sh">{</span>
+</span><span class='line'><span class="sh">  &quot;results&quot; : [</span>
+</span><span class='line'><span class="sh">  {</span>
+</span><span class='line'><span class="sh">    &quot;address_components&quot; : [</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;1600&quot;,</span>
+</span><span class='line'><span class="sh">        &quot;short_name&quot; : &quot;1600&quot;,</span>
+</span><span class='line'><span class="sh">        &quot;types&quot; : [ &quot;street_number&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;Amphitheatre Pkwy&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;Amphitheatre Pkwy&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;route&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;Mountain View&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;Mountain View&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;Santa Clara&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;Santa Clara&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;California&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;CA&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;United States&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;US&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]</span>
+</span><span class='line'><span class="sh">    },</span>
+</span><span class='line'><span class="sh">    {</span>
+</span><span class='line'><span class="sh">      &quot;long_name&quot; : &quot;94043&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;short_name&quot; : &quot;94043&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;postal_code&quot; ]</span>
+</span><span class='line'><span class="sh">    }</span>
+</span><span class='line'><span class="sh">    ],</span>
+</span><span class='line'><span class="sh">      &quot;formatted_address&quot; : &quot;1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA&quot;,</span>
+</span><span class='line'><span class="sh">      &quot;geometry&quot; : {</span>
+</span><span class='line'><span class="sh">        &quot;location&quot; : {</span>
+</span><span class='line'><span class="sh">          &quot;lat&quot; : 37.42291810,</span>
+</span><span class='line'><span class="sh">          &quot;lng&quot; : -122.08542120</span>
+</span><span class='line'><span class="sh">        },</span>
+</span><span class='line'><span class="sh">        &quot;location_type&quot; : &quot;ROOFTOP&quot;,</span>
+</span><span class='line'><span class="sh">        &quot;viewport&quot; : {</span>
+</span><span class='line'><span class="sh">          &quot;northeast&quot; : {</span>
+</span><span class='line'><span class="sh">            &quot;lat&quot; : 37.42426708029149,</span>
+</span><span class='line'><span class="sh">            &quot;lng&quot; : -122.0840722197085</span>
+</span><span class='line'><span class="sh">          },</span>
+</span><span class='line'><span class="sh">          &quot;southwest&quot; : {</span>
+</span><span class='line'><span class="sh">            &quot;lat&quot; : 37.42156911970850,</span>
+</span><span class='line'><span class="sh">            &quot;lng&quot; : -122.0867701802915</span>
+</span><span class='line'><span class="sh">          }</span>
+</span><span class='line'><span class="sh">        }</span>
+</span><span class='line'><span class="sh">      },</span>
+</span><span class='line'><span class="sh">      &quot;types&quot; : [ &quot;street_address&quot; ]</span>
+</span><span class='line'><span class="sh">  }</span>
+</span><span class='line'><span class="sh">  ],</span>
+</span><span class='line'><span class="sh">    &quot;status&quot; : &quot;OK&quot;</span>
+</span><span class='line'><span class="no">JSON</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">FakeWeb</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="ss">:any</span><span class="p">,</span> <span class="sr">%r|http://maps\.googleapis\.com/maps/api/geocode|</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="n">google_json</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once you have that, you simply need to use the new RSpec Rails helper, found in <code>spec/rails_helper.rb</code> and include this line near the top</p>
+
+<figure class='code'><figcaption><span>rails_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;spec/support/geocoder&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Acceptance Testing]]></title>
