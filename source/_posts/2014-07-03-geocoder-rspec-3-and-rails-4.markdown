@@ -17,7 +17,7 @@ Here's my set-up which somewhat similar to Samuel Mullen's with more of a focus 
 ```ruby Gemfile
 
 group :test do
-gem 'fakeweb'
+  gem 'fakeweb'
 end
 ```
 
