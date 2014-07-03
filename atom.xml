@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-07-03T14:34:58-04:00</updated>
+  <updated>2014-07-03T14:47:54-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -31,7 +31,7 @@ having this was necessary because I hit Google&rsquo;s limits a few times.</p>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;fakeweb&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;fakeweb&#39;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
