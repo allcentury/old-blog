@@ -9,8 +9,7 @@
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="I&rsquo;ve been working on a project that utilizes the Geocoder gem and as an avid
-TDD&#8217;r I was trying to prevent my tests from hitting Google& &hellip;">
+  <meta name="description" content="Bootstrap Alerts are a wonderful way to enhance your user experience by giving them helpful hints with colors that scream success or failure! &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,100 @@ TDD&#8217;r I was trying to prevent my tests from hitting Google& &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/">Setting Up Bootstrap Flash Messages in Rails 4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-07T10:12:18-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://getbootstrap.com/components/#alerts">Bootstrap Alerts</a> are a wonderful way to enhance your user experience by giving them helpful hints with colors that scream success or failure!  Sometimes I&rsquo;m able to use all of the available alert types in an app but it takes a bit of configuration.  There are many ways to do this but I find the best way (for me) is to create a simple function in my helper file that can reference each of the alert css classes as needed.</p>
+
+<p>For example, Bootstrap&rsquo;s &lsquo;success&rsquo; class needs your HTML to look like:</p>
+
+<figure class='code'><figcaption><span>alert.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-success&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="nt">&lt;div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It should look something like this:
+<img src="http://i.imgur.com/RqoXnFG.png"></p>
+
+<p>Ok so how do we set this up in our Rails app?  First, let&rsquo;s add the css class information to <code>app/helpers/application_helper.rb</code></p>
+
+<figure class='code'><figcaption><span>application_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">ApplicationHelper</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">flash_level</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">levels</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;notice&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;success&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;alert&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;error&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;danger&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">levels</span><span class="o">[</span><span class="n">type</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we just need to reference this in <code>app/views/layouts/application.html.erb</code> like so:</p>
+
+<figure class='code'><figcaption><span>application.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;alert alert-&lt;%= flash_level(name) %&gt;</span><span class="s2">&quot; &gt;</span>
+</span><span class='line'><span class="s2">    &lt;%= msg %&gt;</span>
+</span><span class='line'><span class="s2">  &lt;/div&gt;</span>
+</span><span class='line'><span class="s2">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This block of code is pretty simple, as each flash message gets passed into the block, we simply append the css class we stored in the helper into the class.  Currently in Bootstrap 3 all alerts start with &ldquo;alert&rdquo; then the alert level followed, such as <code>alert-success</code>.  If Bootstrap decides to change any of the flash css information, it&rsquo;s a simple fix for us and doesn&rsquo;t require any funky logic!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -712,48 +805,6 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/20/hiring-partners-day-1/">Hiring Partners Day 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-20T19:01:03-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today was a fun day at Launch Academy &ndash; not only did we really dive into methods but we had a great Q&amp;A section with a few of the hiring partners.</p>
-
-<p><a href="http://www.linkedin.com/in/tonywieczorek">Tony Wieczorek of Firecracker</a> instantly became a voice of reason in a discussion about jobs and work environments.  While most of the facilitation was in regards to what we will be asked in an interview, he answered my question of &ldquo;What can we ask in an interview?&rdquo; with the most sincerity.  While I understand, hiring is a partnership, the landscape of start-ups seems so vast that landing at the right company is important to me.  What I mean by that, is I am currently going through a very intense program, one that continues to build on itself (Anthony += Anthony).  I&rsquo;d love for this learning to continue at this pace, regardless of where I go and I want a corporate culture that reflects that.  When Tony said I should ask to meet a team (if it&rsquo;s smaller) and get a tour of the facilities a light bulb went off!</p>
-
-<p><a href="http://www.linkedin.com/pub/catherine-powell/0/691/b92">Katherin Powell of Groupize</a> was next and the jokes started early!  Overly sarcastic, very intelligent but also humble!  She gave some great insight into what it&rsquo;s like working at a tech-start up, what non-technical founders roles are but what a Jr. Developer might be walking into.  She also answered my question about corporate culture and said that I should really ask these questions at the interview, I should be able to tell early on what it might be like.</p>
-
-<p><a href="www.linkedin.com/in/zachjyoung">Zach of Gameface Media</a> was a former cohorter from LA and was very excited for all of us in this Spring Cohort.  He had some great advice about not giving up, continuing to grow as developers and to also network outside of the tech industry.  Emphasizing to really use our own interests to help guide us to an area we&rsquo;d love to work in.  Brilliant!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -769,6 +820,10 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/">Setting Up Bootstrap Flash Messages in Rails 4</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/03/geocoder-rspec-3-and-rails-4/">Geocoder, RSpec 3 and Rails 4</a>
       </li>
     
@@ -782,10 +837,6 @@ So many times I&rsquo;ve stared at a problem for hours which only seems to make 
     
       <li class="post">
         <a href="/blog/2014/03/18/week-4-as-a-launcher/">Week 4 as a Launcher</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/09/week-3/">Week 3</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-07-03T14:47:54-04:00</updated>
+  <updated>2014-07-07T10:35:32-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up Bootstrap Flash Messages in Rails 4]]></title>
+    <link href="http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/"/>
+    <updated>2014-07-07T10:12:18-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4</id>
+    <content type="html"><![CDATA[<p><a href="http://getbootstrap.com/components/#alerts">Bootstrap Alerts</a> are a wonderful way to enhance your user experience by giving them helpful hints with colors that scream success or failure!  Sometimes I&rsquo;m able to use all of the available alert types in an app but it takes a bit of configuration.  There are many ways to do this but I find the best way (for me) is to create a simple function in my helper file that can reference each of the alert css classes as needed.</p>
+
+<p>For example, Bootstrap&rsquo;s &lsquo;success&rsquo; class needs your HTML to look like:</p>
+
+<figure class='code'><figcaption><span>alert.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-success&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="nt">&lt;div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It should look something like this:
+<img src="http://i.imgur.com/RqoXnFG.png"></p>
+
+<p>Ok so how do we set this up in our Rails app?  First, let&rsquo;s add the css class information to <code>app/helpers/application_helper.rb</code></p>
+
+<figure class='code'><figcaption><span>application_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">ApplicationHelper</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">flash_level</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">levels</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;notice&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;success&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;alert&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;error&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;danger&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">levels</span><span class="o">[</span><span class="n">type</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we just need to reference this in <code>app/views/layouts/application.html.erb</code> like so:</p>
+
+<figure class='code'><figcaption><span>application.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;alert alert-&lt;%= flash_level(name) %&gt;</span><span class="s2">&quot; &gt;</span>
+</span><span class='line'><span class="s2">    &lt;%= msg %&gt;</span>
+</span><span class='line'><span class="s2">  &lt;/div&gt;</span>
+</span><span class='line'><span class="s2">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This block of code is pretty simple, as each flash message gets passed into the block, we simply append the css class we stored in the helper into the class.  Currently in Bootstrap 3 all alerts start with &ldquo;alert&rdquo; then the alert level followed, such as <code>alert-success</code>.  If Bootstrap decides to change any of the flash css information, it&rsquo;s a simple fix for us and doesn&rsquo;t require any funky logic!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Geocoder, RSpec 3 and Rails 4]]></title>

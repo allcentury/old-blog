@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pry - Anthony Ross' Blog</title>
+  <title>Setting Up Bootstrap Flash Messages in Rails 4 - Anthony Ross' Blog</title>
   <meta name="author" content="Anthony Ross">
 
   
-  <meta name="description" content="Launch Academy started off a bit slow this week at least for me. Friday we received a challenge that I was able to solve by Monday morning but it &hellip;">
+  <meta name="description" content="Bootstrap Alerts are a wonderful way to enhance your user experience by giving them helpful hints with colors that scream success or failure! &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://allcentury.github.io/blog/2014/02/27/pry">
+  <link rel="canonical" href="http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Anthony Ross' Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Pry</h1>
+      <h1 class="entry-title">Setting Up Bootstrap Flash Messages in Rails 4</h1>
     
     
       <p class="meta">
@@ -97,20 +97,32 @@
   
 
 
-<time datetime="2014-02-27T20:57:10-05:00" pubdate data-updated="true">Feb 27<span>th</span>, 2014</time>
+<time datetime="2014-07-07T10:12:18-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Launch Academy started off a bit slow this week at least for me.  Friday we received a challenge that I was able to solve by Monday morning but it wasn&rsquo;t easy.  I got very familiar with nested data structures quickly and I think after endless tinkering I got the program working.</p>
+<div class="entry-content"><p><a href="http://getbootstrap.com/components/#alerts">Bootstrap Alerts</a> are a wonderful way to enhance your user experience by giving them helpful hints with colors that scream success or failure!  Sometimes I&rsquo;m able to use all of the available alert types in an app but it takes a bit of configuration.  There are many ways to do this but I find the best way (for me) is to create a simple function in my helper file that can reference each of the alert css classes as needed.</p>
 
-<p>That said, the rest of the class really struggled with the exercise and because of that the load was lessened for a few days.  I did have some non-core exercises I got to work on, including some additional nested/compound data structures and I got to use a lovely little gem named Sinatra.</p>
+<p>For example, Bootstrap&rsquo;s &lsquo;success&rsquo; class needs your HTML to look like:</p>
 
-<p>However, Sinatra is not the focus of this post &ndash; my new workflow is.  In high school, I was forced to test my code with endless print statements like &ldquo;x here should be 2&rdquo;, or &ldquo;this will never get printed to the screen&rdquo; (yet it always got printed to the screen).  Enter a ruby gem called &lsquo;pry&rsquo;.  If it sounds invasive, it is!  Imagine the ability to stop your program in mid-thought and ask all the questions, you&rsquo;ve always wanted&hellip;</p>
+<figure class='code'><figcaption><span>alert.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-success&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="nt">&lt;div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<figure class='code'><figcaption><span>Pry</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<p>It should look something like this:
+<img src="http://i.imgur.com/RqoXnFG.png"></p>
+
+<p>Ok so how do we set this up in our Rails app?  First, let&rsquo;s add the css class information to <code>app/helpers/application_helper.rb</code></p>
+
+<figure class='code'><figcaption><span>application_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -121,27 +133,36 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">monthly_egg_count</span>
-</span><span class='line'>  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>  <span class="n">restaurants</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">rest</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="c1">#rest = Restaurant v = hours, meals</span>
-</span><span class='line'>    <span class="n">v</span><span class="o">[</span><span class="ss">:meals</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">sub_k</span><span class="p">,</span> <span class="n">sub_v</span><span class="o">|</span> <span class="c1">#sub_v = breakfast, lunch, dinner</span>
-</span><span class='line'>      <span class="n">sub_v</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
-</span><span class='line'>        <span class="nb">binding</span><span class="o">.</span><span class="n">pry</span>
-</span><span class='line'>       <span class="k">if</span> <span class="n">value</span><span class="o">[</span><span class="ss">:ingredients</span><span class="o">].</span><span class="n">include?</span><span class="p">(</span><span class="s2">&quot;eggs&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span><span class="o">[</span><span class="ss">:hours</span><span class="o">]</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">30</span>
-</span><span class='line'>       <span class="k">end</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">ApplicationHelper</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">flash_level</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">levels</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;notice&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;success&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;alert&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;error&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;danger&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">levels</span><span class="o">[</span><span class="n">type</span><span class="o">]</span>
 </span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="n">total</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This method above iterates over a nested hash and checks if the ingredients on a menu includes eggs.  That part isn&rsquo;t really important, it&rsquo;s the magic of line 6.  When the program runs, it will stop dead in it&rsquo;s tracks (though not error) at line 6.  I can then ask the program what the value of every variable is above line 6.  Can I possibly remember what all of those are, at each instance?  No way, I&rsquo;m just a simpleton.  With pry though, I can easily validate my results and even more importantly find the problematic lines with ease.  My favorite part about pry though is being able to type &ldquo;next&rdquo; and/or &ldquo;continue&rdquo; to walk through the program, line by line (still amazed by this).  If I had a tool like this in high school I think things would have ended up a lot differently for me&hellip;</p>
+<p>Now we just need to reference this in <code>app/views/layouts/application.html.erb</code> like so:</p>
+
+<figure class='code'><figcaption><span>application.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;alert alert-&lt;%= flash_level(name) %&gt;</span><span class="s2">&quot; &gt;</span>
+</span><span class='line'><span class="s2">    &lt;%= msg %&gt;</span>
+</span><span class='line'><span class="s2">  &lt;/div&gt;</span>
+</span><span class='line'><span class="s2">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This block of code is pretty simple, as each flash message gets passed into the block, we simply append the css class we stored in the helper into the class.  Currently in Bootstrap 3 all alerts start with &ldquo;alert&rdquo; then the alert level followed, such as <code>alert-success</code>.  If Bootstrap decides to change any of the flash css information, it&rsquo;s a simple fix for us and doesn&rsquo;t require any funky logic!</p>
 </div>
 
 
@@ -164,7 +185,7 @@
   
 
 
-<time datetime="2014-02-27T20:57:10-05:00" pubdate data-updated="true">Feb 27<span>th</span>, 2014</time>
+<time datetime="2014-07-07T10:12:18-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2014</time>
       
 
 
@@ -172,7 +193,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/02/27/pry/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/02/27/pry/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/" data-via="djanthonyross" data-counturl="http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/" >Tweet</a>
   
   
   
@@ -181,10 +202,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/25/regex/" title="Previous Post: RegEx">&laquo; RegEx</a>
+        <a class="basic-alignment left" href="/blog/2014/07/03/geocoder-rspec-3-and-rails-4/" title="Previous Post: Geocoder, RSpec 3 and Rails 4">&laquo; Geocoder, RSpec 3 and Rails 4</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/01/data-structures/" title="Next Post: Data Structures">Data Structures &raquo;</a>
       
     </p>
   </footer>
