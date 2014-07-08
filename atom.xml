@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony Ross' Blog]]></title>
   <link href="http://allcentury.github.io/atom.xml" rel="self"/>
   <link href="http://allcentury.github.io/"/>
-  <updated>2014-07-07T10:35:32-04:00</updated>
+  <updated>2014-07-08T18:12:15-04:00</updated>
   <id>http://allcentury.github.io/</id>
   <author>
     <name><![CDATA[Anthony Ross]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Make Multiple API Calls Using Limit &amp; Offset]]></title>
+    <link href="http://allcentury.github.io/blog/2014/07/08/make-multiple-api-calls-using-limit-and-offset/"/>
+    <updated>2014-07-08T14:59:53-04:00</updated>
+    <id>http://allcentury.github.io/blog/2014/07/08/make-multiple-api-calls-using-limit-and-offset</id>
+    <content type="html"><![CDATA[<p>Earlier today I needed to get some data from the Yelp API but I didn&rsquo;t need
+anything more than a list of businesses within a particular state.  I did an
+initial search on Yelp&rsquo;s site and saw there were over 300 businesses that met
+my search criteria so I decided to write a quick program to get all of the
+information I needed.</p>
+
+<p>If you&rsquo;re reading this you&rsquo;re probably aware that Yelp (like many API&rsquo;s) has a
+limit of the search results, in thise case it&rsquo;s 20 (this is as of v2 of their
+API).  I&rsquo;ve made my code easy to change so by all means replace any of my
+variables with your own criteria.  I&rsquo;m going to put up a gist of all of the code though.</p>
+
+<p>First things first, you need to register your app with Yelp <a
+href="http://www.yelp.com/developers/getting_started">here</a>.  From there you
+need to copy the 4 codes they give you into this:</p>
+
+<figure class='code'><figcaption><span>yelp-api.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;csv&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;json&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;pry&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;oauth&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">consumer_key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="n">consumer_secret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="n">token_secret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">api_host</span> <span class="o">=</span> <span class="s1">&#39;api.yelp.com&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">consumer</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:Consumer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="p">{</span><span class="ss">:site</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://</span><span class="si">#{</span><span class="n">api_host</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span>
+</span><span class='line'><span class="n">access_token</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:AccessToken</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">consumer</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">token_secret</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;ve left my gem list as-is and we&rsquo;ll touch on most of these but I suspect you already know what they do.</p>
+
+<p>Ok, so the first goal is make an API call to make sure we get something that we suspect.  Let&rsquo;s add this to our code:</p>
+
+<figure class='code'><figcaption><span>yelp-api.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;flowers%20candy&quot;</span>
+</span><span class='line'><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;massachusetts&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/v2/search?term=</span><span class="si">#{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;location=</span><span class="si">#{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="n">response</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">access_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">response</span><span class="o">[</span><span class="s2">&quot;businesses&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So we&rsquo;re searching &ldquo;flowers candy&rdquo; with a location of Massachusetts.  This is
+not only a tutorial on API calls but also a friendly reminder to buy your SO
+some flowers and/or candy.  You can thank me later.</p>
+
+<p>You should get a response like this:
+<img src="http://i.imgur.com/OscOauk.png"></p>
+
+<p>So that response has all the data we want and yelp is kind enough to tell us that 316 businesses meet that search criteria.  That&rsquo;s great and all but they only give us the first 20 what if we want all of them?  We could do a loop 16 times (318 total / 20 per fetch) but how do we change our API call to get the next 20 and the next 20 and so on.  Thankfully almost all API&rsquo;s that have JSON response will give you a way to paginate or limit/offset.  Here Yelp wants us to use limit/offset and you do that by adding that to your API calls like so:</p>
+
+<figure class='code'><figcaption><span>yelp-api.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">resp</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">limit</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span class='line'><span class="k">while</span> <span class="o">!</span><span class="p">(</span><span class="n">response</span><span class="o">[</span><span class="s2">&quot;businesses&quot;</span><span class="o">].</span><span class="n">empty?</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/v2/search?term=</span><span class="si">#{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;location=</span><span class="si">#{</span><span class="n">location</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">#{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">#{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">response</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">access_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">resp</span> <span class="o">&lt;&lt;</span> <span class="n">response</span>
+</span><span class='line'>  <span class="n">offset</span> <span class="o">+=</span> <span class="n">limit</span>
+</span><span class='line'>  <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well this code should be somewhat straightforward but I&rsquo;ll go through the
+important parts.  We start with an offset of 0 that&rsquo;s because we want to start
+at the beginning of the API response.  The limit gives us how many we want at a
+time.  So with an offset of 0 and a limit of 20, this will give us the first 20
+businesses that meet our search criteria.  We loop again and as long as the
+response[&ldquo;businesses&rdquo;] array is not empty we continue on (we know there are a
+lot more than 20 results so it loops again).  This time, offset has increased by
+20 so we start at the 21st element and get another 20.  We keep doing this
+until we have all of them.</p>
+
+<p>From there you can do whatever you&rsquo;d like with all that data by looping over the resp array we&rsquo;ve been appending the responses into.  I actually needed to put these into a CSV which I trust you already know how to do. Hope that was helpful!</p>
+
+<p>You can find a gist of the entire code <a href="https://gist.github.com/3c899bbf8033be08c615">here</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Setting Up Bootstrap Flash Messages in Rails 4]]></title>

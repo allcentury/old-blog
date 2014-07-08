@@ -2,80 +2,86 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://allcentury.github.io/blog/2014/01/14/my-first-post/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/18/first-day-as-a-launcher/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/18/day-2-as-a-launcher/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/19/up-up-and-dot-dot-dot-crash/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/20/koans/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/20/hiring-partners-day-1/</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/22/week-1-reflection/</loc>
-        <lastmod>2014-02-22T11:23:32-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/25/regex/</loc>
-        <lastmod>2014-02-25T11:58:44-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/02/27/pry/</loc>
-        <lastmod>2014-02-28T07:25:24-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/03/01/data-structures/</loc>
-        <lastmod>2014-03-01T15:43:15-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/03/09/week-3/</loc>
-        <lastmod>2014-03-09T15:48:25-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/03/18/week-4-as-a-launcher/</loc>
-        <lastmod>2014-03-18T19:21:46-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/03/21/ar-equals-launcher-star-5/</loc>
-        <lastmod>2014-03-21T18:31:59-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/04/04/acceptance-testing/</loc>
-        <lastmod>2014-04-09T17:34:09-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/2014/07/03/geocoder-rspec-3-and-rails-4/</loc>
-        <lastmod>2014-07-03T14:47:24-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
     <url>
         <loc>
             http://allcentury.github.io/blog/2014/07/07/setting-up-bootstrap-flash-messages-in-rails-4/
         </loc>
-        <lastmod>2014-07-07T10:34:55-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://allcentury.github.io/blog/2014/07/08/make-multiple-api-calls-using-limit-and-offset/
+        </loc>
+        <lastmod>2014-07-08T18:11:26-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/blog/archives/</loc>
-        <lastmod>2014-07-07T10:34:55-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:26-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/</loc>
-        <lastmod>2014-07-07T10:34:55-04:00</lastmod>
+        <lastmod>2014-07-08T18:11:26-04:00</lastmod>
     </url>
     <url>
         <loc>http://allcentury.github.io/robots.txt</loc>
-        <lastmod>2014-02-21T11:05:06-05:00</lastmod>
+        <lastmod>2014-07-08T18:11:10-04:00</lastmod>
     </url>
 </urlset>
