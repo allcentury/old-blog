@@ -86,4 +86,3 @@ From there you can do whatever you'd like with all that data by looping over the
 
 You can find a gist of the entire code <a href="https://gist.github.com/3c899bbf8033be08c615">here</a>
 
-{% gist 4321346 %}
