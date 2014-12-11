@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anthony Ross&#39; Blog</title>
+    <description>A site dedicated to a number of ah-ha moments while programming.
+</description>
+    <link>allcentury.github.io/</link>
+    <atom:link href="allcentury.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 11 Dec 2014 11:46:32 -0500</pubDate>
+    <lastBuildDate>Thu, 11 Dec 2014 11:46:32 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Weechat setup for irc.gitter.im</title>
+        <description>&lt;p&gt;I recently got back on freenode after almost a 10 year gap.  I don’t know why I left but the community on there is really fantastic.&lt;/p&gt;
+
+&lt;p&gt;That said, I didn’t really want a native osx app since I spend nearly all my time on the command line. Enter &lt;a href=&quot;https://weechat.org/&quot;&gt;weechat&lt;/a&gt; a wonderful terminal-based chat client that really allows me to do everything I need to.&lt;/p&gt;
+
+&lt;p&gt;While I mentioned freenode, I also find myself on &lt;a href=&quot;https://gitter.im&quot;&gt;Github’s Gitter&lt;/a&gt; quite a bit which has been a great way to work with collaborators on projects.&lt;/p&gt;
+
+&lt;p&gt;Getting weechat to work with gitter was not as easy as weechat’s built in support for freenode was so the setup took me a few days to get right.  Thanks to github user @raine](https://github.com/raine) I got the SSL configure set up but there is an extra step with fingerprints you need to configure.&lt;/p&gt;
+
+&lt;p&gt;The entire script is like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com//allcentury/e1ed5800d0a98a8828a9.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;See you on gitter or freenode - I’m usually on as allcentury&lt;/p&gt;
+</description>
+        <pubDate>Thu, 11 Dec 2014 00:00:00 -0500</pubDate>
+        <link>allcentury.github.io/2014/12/11/weechat-setup-for-gitter.html</link>
+        <guid isPermaLink="true">allcentury.github.io/2014/12/11/weechat-setup-for-gitter.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
