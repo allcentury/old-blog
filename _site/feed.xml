@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anthony Ross&#39; Blog</title>
+    <description>A site dedicated to a number of ah-ha moments while programming.
+</description>
+    <link>allcentury.github.io/</link>
+    <atom:link href="allcentury.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 11 Dec 2014 11:45:06 -0500</pubDate>
+    <lastBuildDate>Thu, 11 Dec 2014 11:45:06 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 11 Dec 2014 05:43:05 -0500</pubDate>
+        <link>allcentury.github.io/jekyll/update/2014/12/11/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">allcentury.github.io/jekyll/update/2014/12/11/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Weechat setup for irc.gitter.im</title>
+        <description>&lt;p&gt;I recently got back on freenode after almost a 10 year gap.  I don’t know why I left but the community on there is really fantastic.&lt;/p&gt;
+
+&lt;p&gt;That said, I didn’t really want a native osx app since I spend nearly all my time on the command line. Enter &lt;a href=&quot;https://weechat.org/&quot;&gt;weechat&lt;/a&gt; a wonderful terminal-based chat client that really allows me to do everything I need to.&lt;/p&gt;
+
+&lt;p&gt;While I mentioned freenode, I also find myself on &lt;a href=&quot;https://gitter.im&quot;&gt;Github’s Gitter&lt;/a&gt; quite a bit which has been a great way to work with collaborators on projects.&lt;/p&gt;
+
+&lt;p&gt;Getting weechat to work with gitter was not as easy as weechat’s built in support for freenode was so the setup took me a few days to get right.  Thanks to github user @raine](https://github.com/raine) I got the SSL configure set up but there is an extra step with fingerprints you need to configure.&lt;/p&gt;
+
+&lt;p&gt;The entire script is like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com//allcentury/e1ed5800d0a98a8828a9.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;See you on gitter or freenode - I’m usually on as allcentury&lt;/p&gt;
+</description>
+        <pubDate>Thu, 11 Dec 2014 00:00:00 -0500</pubDate>
+        <link>allcentury.github.io/2014/12/11/weechat-setup-for-gitter.html</link>
+        <guid isPermaLink="true">allcentury.github.io/2014/12/11/weechat-setup-for-gitter.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
